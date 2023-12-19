@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+sudo pacman -S zsh
+chsh -s /bin/zsh
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+
 git clone --bare git@github.com:alaidine/Dotfiles.git $HOME/Dotfiles
 function config {
    /usr/bin/git --git-dir=$HOME/Dotfiles/ --work-tree=$HOME $@
