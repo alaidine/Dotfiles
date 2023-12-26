@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+    >&2 echo "No arguments provided"
+    exit 1
+fi
+
+if [ $1 != "new" ] && [ $1 != "a" ] && [ $1 != "d" ] && [ $1 != "ls" ]; then
+    >&2 echo "Invalid arguments"
+    exit 1
+fi
+
+if [ $1 = "new" ]; then
+    zellij -s $(pwd | sed 's/.*\///g') -l ~/.config/zellij/zjstatus_default.kdl
+fi
+
+if [ $1 = "a" ]; then
+    SESSION=$(zellij ls | awk '{print $1}' | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" | fzf)
+    zellij a $SESSION
+fi
+
+if [ $1 = "d" ]; then
+    SESSION=$(zellij ls | awk '{print $1}' | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" | fzf)
+    zellij d $SESSION
+fi
+
+if [ $1 = "ls" ]; then
+    zellij ls
+fi

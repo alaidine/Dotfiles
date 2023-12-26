@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+bun add elysia
+bun add -d drizzle-kit
+bun add @elysiajs/html
+bun add -d typed-html
+bun add drizzle-orm
+bun add @libsql/client
+
+# Change these in tsconfig.json:
+#    "jsx": "react",
+#    "jsxFactory": "elements.createElement",
