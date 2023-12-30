@@ -45,7 +45,7 @@ $ vim /etc/pacman.d/mirrorlist
 
 ### Install the base system:
 ```bash
-$ basestrap -i /mnt base base-devel runit elogind-runit linux linux-firmware grub networkmanager networkmanager-runit cryptsetup lvm2 lvm2-runit neovim vim git zsh intel-ucode efibootmgr network-manger-applet dosfstools linux-headers bluez bluez-runit bluez-utils cups cups-runit sdg-utils xdg-user-dirs
+$ basestrap -i /mnt base base-devel runit elogind-runit linux linux-firmware grub networkmanager networkmanager-runit cryptsetup lvm2 lvm2-runit neovim vim git zsh intel-ucode efibootmgr network-manger-applet dosfstools linux-headers bluez bluez-runit bluez-utils cups cups-runit sdg-utils xdg-user-dirs ansible
 ```
 
 ### Change-root:
