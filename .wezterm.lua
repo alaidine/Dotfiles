@@ -8,6 +8,28 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+wezterm.on('toggle-opacity', function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.window_background_opacity then
+    overrides.window_background_opacity = 0.9
+  else
+    overrides.window_background_opacity = nil
+  end
+  window:set_config_overrides(overrides)
+end)
+
+wezterm.on('toggle-ligature', function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.harfbuzz_features then
+    -- If we haven't overridden it yet, then override with ligatures disabled
+    overrides.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+  else
+    -- else we did already, and we should disable out override now
+    overrides.harfbuzz_features = nil
+  end
+  window:set_config_overrides(overrides)
+end)
+
 config.window_background_opacity = 1
 config.hide_tab_bar_if_only_one_tab = true
 config.hide_tab_bar_if_only_one_tab = true
@@ -37,6 +59,16 @@ config.keys = {
         key = 'n',
         mods = 'SHIFT|CTRL',
         action = wezterm.action.ToggleFullScreen,
+    },
+    {
+        key = 'O',
+        mods = 'SHIFT|CTRL',
+        action = wezterm.action.EmitEvent 'toggle-opacity',
+    },
+    {
+        key = 'E',
+        mods = 'SHIFT|CTRL',
+        action = wezterm.action.EmitEvent 'toggle-ligature',
     },
 }
 
