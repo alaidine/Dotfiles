@@ -24,3 +24,8 @@ echo "[\[\e[1m\]\u@\h\[\e[0m\]: \w] [\[\e[34m\]$(git branch | grep ^* | sed s/\*
 $(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; if [ "$?" -ne "0" ]; then \
 echo "\[\e[1;31m\]*\[\e[0m\]"; fi)] \$ "; else \
 echo "[\[\e[1m\]\u@\h\[\e[0m\]: \w] \$ "; fi )'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "/home/alaidine/.local/share/cargo/env"
+
+PATH=~/.console-ninja/.bin:$PATH

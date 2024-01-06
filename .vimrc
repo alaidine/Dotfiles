@@ -60,4 +60,4 @@ nnoremap <leader>bd <cmd>bdelete<cr>
 hi! Normal ctermbg=NONE guibg=NONE
 
 set laststatus=2
-let g:lightline = {'colorscheme': 'gruvbox'}
+let g:lightline = {'colorscheme': 'gruvbox' }

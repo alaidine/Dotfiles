@@ -1,4 +1,4 @@
-alias nv='nvim'
+alias vim='nvim'
 alias z='zoxide'
 alias g='git'
 alias l='eza'
@@ -15,6 +15,7 @@ alias vimd="NVIM_APPNAME=doom-nvim nvim"
 alias vc="NVIM_APPNAME=nvchad nvim"
 alias tim="NVIM_APPNAME=tim nvim"
 alias dvim="NVIM_APPNAME=dvim nvim"
+alias av="NVIM_APPNAME=astro-vim nvim"
 
 # fzf aliases
 alias fzfc="fzf --preview='less {}'"

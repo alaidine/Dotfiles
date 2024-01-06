@@ -9,14 +9,17 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
-zoxide init fish | source
+~/.local/bin/zoxide init fish | source
 
 # aliases
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
+alias vc "NVIM_APPNAME=nvchad nvim"
 alias g git
+
+alias gss "git status --short"
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim

@@ -10,3 +10,4 @@ export BROWSER="firefox"
 export TERMINAL="st"
 
 if [ -e /home/alaidine/.nix-profile/etc/profile.d/nix.sh ]; then . /home/alaidine/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+. "/home/alaidine/.local/share/cargo/env"

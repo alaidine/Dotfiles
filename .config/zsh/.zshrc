@@ -20,7 +20,7 @@ plug "zap-zsh/supercharge"
 # plug "zap-zsh/atmachine-prompt"
 plug "romkatv/powerlevel10k"
 plug "chivalryq/git-alias"
-plug "Aloxaf/fzf-tab"
+# plug "Aloxaf/fzf-tab"
 
 # zoxide a smarter cd
 eval "$(zoxide init zsh)"
@@ -94,3 +94,8 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # bun completions
 [ -s "/home/alaidine/.bun/_bun" ] && source "/home/alaidine/.bun/_bun"
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
