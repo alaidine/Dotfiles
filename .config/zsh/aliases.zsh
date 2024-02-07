@@ -6,7 +6,7 @@ alias la='eza -a --icons'
 alias ll='eza -l --icons'
 alias lla='eza -la --icons'
 alias nwmacs="emacs --no-window-system"
-alias emacs="emacsclient ./"
+# alias emacs="emacsclient ./"
 alias f='zi'
 alias pipes='pipes.sh'
 
