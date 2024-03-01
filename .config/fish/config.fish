@@ -12,7 +12,12 @@ if status is-interactive
 
 end
 
+function starship_transient_rprompt_func
+  starship module time
+end
 starship init fish | source
+enable_transience
+
 if test -f ~/.cache/ags/user/colorschemes/sequences
     cat ~/.cache/ags/user/colorschemes/sequences
 end
@@ -36,6 +41,8 @@ alias la 'eza -a --icons'
 alias ll 'eza -l --icons'
 alias lla 'eza -la --icons'
 
+alias config '/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME'
+
 set -gx EDITOR nvim
 
 set -gx PATH bin $PATH
@@ -58,6 +65,8 @@ function __check_rvm --on-variable PWD --description 'Do nvm stuff'
   else
   end
 end
+
+zoxide init fish | source
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG

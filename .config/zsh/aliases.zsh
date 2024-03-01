@@ -1,5 +1,4 @@
 alias vim='nvim'
-alias z='zoxide'
 alias g='git'
 alias l='eza'
 alias la='eza -a --icons'

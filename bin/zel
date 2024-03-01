@@ -1,17 +1,8 @@
 #!/usr/bin/env bash
 
 if [ $# -eq 0 ]; then
-    >&2 echo "No arguments provided"
+    zellij
     exit 1
-fi
-
-if [ $1 != "new" ] && [ $1 != "a" ] && [ $1 != "d" ] && [ $1 != "ls" ]; then
-    >&2 echo "Invalid arguments"
-    exit 1
-fi
-
-if [ $1 = "new" ]; then
-    zellij -s $(pwd | sed 's/.*\///g') -l ~/.config/zellij/zjstatus_default.kdl
 fi
 
 if [ $1 = "a" ]; then

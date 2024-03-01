@@ -24,6 +24,3 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export OPENAI_API_KEY="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"
 
 [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/install-nvm-exec
