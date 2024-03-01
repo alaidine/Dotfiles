@@ -7,6 +7,8 @@ export PATH=/home/alaidine/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/local/lib
+
 export PATH=$PATH:/usr/local/go/bin
 
 # bun
@@ -22,6 +24,3 @@ export FLYCTL_INSTALL="/home/alaidine/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/install-nvm-exec

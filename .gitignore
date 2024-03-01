@@ -1,3 +1,5 @@
 plugins
 Dotfiles
 fish_variables
+.config/zsh/.zsh_history
+.config/zsh/.zcompdump

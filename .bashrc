@@ -30,4 +30,4 @@ echo "\[\e[1;31m\]*\[\e[0m\]"; fi)] \$ "; else \
 echo "[\[\e[1m\]\u@\h\[\e[0m\]: \w] \$ "; fi )'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-. "/home/alaidine/.local/share/cargo/env"
+# . "/home/alaidine/.local/share/cargo/env"

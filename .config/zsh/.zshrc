@@ -80,7 +80,7 @@ bindkey -s '^g' 'lazygit\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-bindkey '^ ' autosuggest-accept
+bindkey '^[a' autosuggest-accept
 
 # zsh-history-substring-search configuration
 bindkey '^[[A' history-substring-search-up # or '\eOA'
@@ -90,12 +90,10 @@ HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/.config/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.config/zsh/.p10k.zsh
 
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
 # bun completions
 [ -s "/home/alaidine/.bun/_bun" ] && source "/home/alaidine/.bun/_bun"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

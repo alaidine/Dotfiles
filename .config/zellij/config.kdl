@@ -1,4 +1,5 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
+
 ui {
     pane_frames {
         hide_session_name false
@@ -155,6 +156,34 @@ keybinds clear-defaults=true {
 		bind "Alt -" { Resize "Decrease"; }
 		bind "Alt [" { PreviousSwapLayout; }
 		bind "Alt ]" { NextSwapLayout; }
+        bind "Ctrl y" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij_forgot.wasm" {
+                "lock"                          "ctrl + g"
+                "new pane"                      "alt + n or ctrl + a + n"
+                "navigate"                      "alt + <hjkl> or alt + arrow keys"
+                "resize pane"                   "alt + <+|->"
+
+                "session: session manager"      "ctrl + x + w"
+                "session: dettach"              "ctrl + x + d"
+
+                "pane: move"                    "ctrl + a + j/k"
+                "pane: close"                   "ctrl + a + x"
+                "pane: rename"                  "ctrl + a + r"
+                "pane: fullscreen"              "ctrl + a + z"
+                "pane: floating"                "ctrl + a + w"
+                "pane: embed"                   "ctrl + a + e"
+
+                "tab: rename"                   "ctrl + t + r"
+                "tab: sync"                     "ctrl + t + s"
+                "tab: break pane to new tab"    "ctrl + t + b"
+                "tab: break pane left/right"    "ctrl + t + <[]>"
+
+                "resize: Increase / Decrease"   "ctrl + n <+|->"
+                "resize: Increase to"           "ctrl + arrow keys"
+                "resize: Decrease from"         "ctrl + <HJKL>"
+                floating true
+            }
+        }
 	}
 	shared_except "normal" "locked" {
 		bind "Enter" "Esc" { SwitchToMode "Normal"; }
@@ -251,7 +280,7 @@ theme "catppuccin-mocha"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
