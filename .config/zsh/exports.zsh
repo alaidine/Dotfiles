@@ -7,6 +7,8 @@ export PATH=/home/alaidine/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export C_INCLUDE_PATH=/home/alaidine/include:$C_INCLUDE_PATH
+
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/local/lib
 
 export PATH=$PATH:/usr/local/go/bin

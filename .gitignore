@@ -3,3 +3,6 @@ Dotfiles
 fish_variables
 .config/zsh/.zsh_history
 .config/zsh/.zcompdump
+.zsh_history
+ohmyzsh
+.zcompdump*
