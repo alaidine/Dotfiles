@@ -80,7 +80,7 @@ bindkey -s '^g' 'lazygit\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-bindkey '^ ' autosuggest-accept
+bindkey '^[a' autosuggest-accept
 
 # zsh-history-substring-search configuration
 bindkey '^[[A' history-substring-search-up # or '\eOA'
