@@ -23,6 +23,8 @@ alias nvc="NVIM_APPNAME=nvchad nvim"
 alias g="git"
 alias gss="git status --short"
 
+alias config="/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
+
 export PS1='$(git branch &>/dev/null; if [ $? -eq 0 ]; then \
 echo "[\[\e[1m\]\u@\h\[\e[0m\]: \w] [\[\e[34m\]$(git branch | grep ^* | sed s/\*\ //)\[\e[0m\]\
 $(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; if [ "$?" -ne "0" ]; then \
