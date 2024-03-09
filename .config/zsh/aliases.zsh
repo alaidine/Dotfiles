@@ -21,3 +21,5 @@ alias fzfc="fzf --preview='less {}'"
 alias fzfb="fzf --preview='bat --color=always --style=numbers {}'"
 
 alias config="/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
+
+alias gz="git-fzf"
