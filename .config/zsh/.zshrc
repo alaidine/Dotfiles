@@ -1,3 +1,6 @@
+[ -f "$ZDOTDIR/aliases.zsh" ] && source "$ZDOTDIR/aliases.zsh"
+[ -f "$ZDOTDIR/exports.zsh" ] && source "$ZDOTDIR/exports.zsh"
+
 export ZSH="$ZDOTDIR/ohmyzsh"
 
 ZSH_THEME="robbyrussell"
@@ -39,9 +42,21 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git vi-mode autojump)
+plugins=(git vi-mode zoxide eza zsh-autosuggestions zsh-syntax-highlighting)
+
+ZSH_HIGHLIGHT_MAXLENGTH=512
+
+HISTFILE=$ZDOTDIR/.zsh_history
 
 source $ZSH/oh-my-zsh.sh
 
-[ -f "$ZDOTDIR/aliases.zsh" ] && source "$ZDOTDIR/aliases.zsh"
-[ -f "$ZDOTDIR/exports.zsh" ] && source "$ZDOTDIR/exports.zsh"
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+bindkey '^H' backward-kill-word
+
+bindkey '^f' autosuggest-accept

@@ -1,12 +1,6 @@
 alias vim='nvim'
-alias g='git'
-alias l='eza'
-alias la='eza -a --icons'
-alias ll='eza -l --icons'
-alias lla='eza -la --icons'
 alias nwmacs="emacs --no-window-system"
 # alias emacs="emacsclient ./"
-alias f='zi'
 alias pipes='pipes.sh'
 
 # use multiple version of nvim
@@ -22,4 +16,5 @@ alias fzfb="fzf --preview='bat --color=always --style=numbers {}'"
 
 alias config="/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
 
+alias f="zi"
 alias gz="git-fzf"
