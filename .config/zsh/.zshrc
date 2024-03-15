@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 [ -f "$ZDOTDIR/aliases.zsh" ] && source "$ZDOTDIR/aliases.zsh"
 [ -f "$ZDOTDIR/exports.zsh" ] && source "$ZDOTDIR/exports.zsh"
 
@@ -42,9 +49,21 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git vi-mode zoxide eza zsh-autosuggestions zsh-syntax-highlighting)
-
 ZSH_HIGHLIGHT_MAXLENGTH=512
+plugins=(
+    git
+    vi-mode
+    zoxide
+    eza
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    web-search
+    vscode
+    fzf
+)
+
+DISABLE_FZF_AUTO_COMPLETION="false"
+DISABLE_FZF_KEY_BINDINGS="false"
 
 HISTFILE=$ZDOTDIR/.zsh_history
 
@@ -60,3 +79,15 @@ bindkey -v '^?' backward-delete-char
 bindkey '^H' backward-kill-word
 
 bindkey '^f' autosuggest-accept
+
+function ya() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
