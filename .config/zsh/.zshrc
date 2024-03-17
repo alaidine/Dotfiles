@@ -10,6 +10,24 @@ fi
 
 export ZSH="$ZDOTDIR/ohmyzsh"
 
+# Check if ohmyzsh is installed, if not, install it
+if [ ! -d "$ZSH" ]; then
+  echo "Oh My Zsh is not installed. Installing..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+# Check if zsh-autosuggestions plugin is installed, if not, install it
+if ! command -v zsh-autosuggestions &> /dev/null; then
+  echo "zsh-autosuggestions plugin is not installed. Installing..."
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-autosuggestions
+fi
+
+# Check if zsh-syntax-highlighting plugin is installed, if not, install it
+if ! command -v zsh-syntax-highlighting &> /dev/null; then
+  echo "zsh-syntax-highlighting plugin is not installed. Installing..."
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-syntax-highlighting
+fi
+
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -51,15 +69,15 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 ZSH_HIGHLIGHT_MAXLENGTH=512
 plugins=(
-    git
-    vi-mode
-    zoxide
-    eza
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    web-search
-    vscode
-    fzf
+  git
+  vi-mode
+  zoxide
+  eza
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  web-search
+  vscode
+  fzf
 )
 
 DISABLE_FZF_AUTO_COMPLETION="false"
