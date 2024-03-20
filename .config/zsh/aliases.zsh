@@ -18,3 +18,5 @@ alias config="/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
 
 alias f="zi"
 alias gz="git-fzf"
+
+alias val="valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes"
