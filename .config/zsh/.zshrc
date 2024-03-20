@@ -17,13 +17,13 @@ if [ ! -d "$ZSH" ]; then
 fi
 
 # Check if zsh-autosuggestions plugin is installed, if not, install it
-if ! command -v zsh-autosuggestions &> /dev/null; then
+if [ ! -d "$ZSH/custom/plugins/zsh-autosuggestions" ]; then
   echo "zsh-autosuggestions plugin is not installed. Installing..."
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-autosuggestions
 fi
 
 # Check if zsh-syntax-highlighting plugin is installed, if not, install it
-if ! command -v zsh-syntax-highlighting &> /dev/null; then
+if [ ! -d "$ZSH/custom/plugins/zsh-syntax-highlighting" ]; then
   echo "zsh-syntax-highlighting plugin is not installed. Installing..."
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-syntax-highlighting
 fi
