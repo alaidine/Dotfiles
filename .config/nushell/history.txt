@@ -1,0 +1,102 @@
+exit
+clear
+ll
+la
+ls
+ls -l
+clear
+exit
+clear
+ll
+clear
+cd ../
+mkdir ohmyposh
+cd ohmyposh/
+touch catppuccin_mochap.omp.json
+vim catppuccin_mochap.omp.json
+nvim catppuccin_mochap.omp.json
+cd ../
+clear
+cd nushell/
+vim env.nu
+nvim env.nu
+exit
+clear
+cd
+clear
+cd .config/nvim/
+clear
+ll
+cd
+clear
+cd .config/zsh/
+ll
+clear
+ls
+cd ..
+clear
+cd nushell/
+ll
+ls
+vim config.nu
+nvim config.nu
+clear
+ll
+vim config.nu
+clear
+ll
+cd
+clear
+cd Delivery/
+ll
+cd amazed/
+ll
+clear
+cd main/
+clear
+ll
+vim laby_perl.pl
+clear
+ll
+clear
+cd
+clear
+ll
+cd bin/
+ll
+cd
+clear
+cd .config/nvim/
+cd ..
+clear
+ll
+cd nushell/
+ll
+clear
+cd ..
+clear
+tail ~/.bashrc
+tail ~/.bashrc >> nushell/config.nu
+cd nushell/
+vim config.nu
+tail
+clear
+ll
+clear
+cd
+clear
+cd .config/
+config add ohmyposh/
+cd nushell/
+vim config.nu
+clear
+cd ..
+clear
+config add ohmyposh/
+cd
+clear
+ll
+clear
+cd
+clear
+exit
