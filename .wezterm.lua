@@ -35,7 +35,7 @@ end)
 config.window_background_opacity = 1
 config.hide_tab_bar_if_only_one_tab = true
 config.hide_tab_bar_if_only_one_tab = true
-config.font = wezterm.font("Hack Nerd Font")
+config.font = wezterm.font("JetBrainsMono Nerd Font")
 
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 custom.background = "#000000"

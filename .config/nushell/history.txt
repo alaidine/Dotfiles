@@ -100,3 +100,25 @@ clear
 cd
 clear
 exit
+cd .config/nushell/
+ll
+vim env.nu
+ll
+clear
+z vim
+clear
+cd .config/
+ll
+cd
+clear
+pkill pipewire
+htop
+pkill pipewire-pulse
+clear
+cd
+cd bin/
+mv pipewire sound
+./sound
+clear
+sudo reboot
+vim .wezterm.lua
