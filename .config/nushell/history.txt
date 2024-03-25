@@ -122,3 +122,6 @@ mv pipewire sound
 clear
 sudo reboot
 vim .wezterm.lua
+exit
+ls
+clear

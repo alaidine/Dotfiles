@@ -34,8 +34,8 @@ end)
 
 config.window_background_opacity = 1
 config.hide_tab_bar_if_only_one_tab = true
-config.hide_tab_bar_if_only_one_tab = true
 config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font_size = 11.0
 
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 custom.background = "#000000"
@@ -49,9 +49,14 @@ custom_tokyonight_night.tab_bar.background = "#040404"
 custom_tokyonight_night.tab_bar.inactive_tab.bg_color = "#0f0f0f"
 custom_tokyonight_night.tab_bar.new_tab.bg_color = "#080808"
 
+
+local custom_gruvbox = wezterm.color.get_builtin_schemes()["Gruvbox dark, hard (base16)"]
+custom_gruvbox.background = "#000000"
+
 config.color_schemes = {
 	["OLEDppuccin"] = custom,
 	["CUSTOM_TOKYO"] = custom_tokyonight_night,
+    ["CUSTOM_GRUV"] = custom_gruvbox,
 }
 
 config.color_scheme = "OLEDppuccin"

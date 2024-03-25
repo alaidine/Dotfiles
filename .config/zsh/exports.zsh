@@ -3,6 +3,7 @@ export PATH=/home/alaidine/.cargo/env:$PATH
 export PATH=/home/alaidine/.cargo/bin:$PATH
 export PATH=/home/alaidine/go/bin:$PATH
 export PATH=/home/alaidine/bin:$PATH
+export PATH=/home/alaidine/bin/python-venv/bin/:$PATH
 export PATH=/home/alaidine/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
