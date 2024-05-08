@@ -11,9 +11,9 @@ fi
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "jeffreytse/zsh-vi-mode"
-plug "zap-zsh/zap-prompt"
 plug "romkatv/powerlevel10k"
 plug "zsh-users/zsh-syntax-highlighting"
+plug "chivalryq/git-alias"
 plug "$ZDOTDIR/aliases.zsh"
 plug "$ZDOTDIR/exports.zsh"
 
@@ -39,5 +39,19 @@ compinit
 
 eval "$(zoxide init zsh)"
 
+# Disable the cursor style feature
+ZVM_CURSOR_STYLE_ENABLED=false
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# pnpm
+export PNPM_HOME="/home/alaidine/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# For zsh subshells, add to ~/.zshrc.
+printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh"}}\x9c'

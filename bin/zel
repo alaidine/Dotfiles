@@ -28,7 +28,7 @@ function attach_session {
 	session_name="$(zellij ls \
 		| fzf --header "Select session to attach" --prompt "Session: " \
 		| awk '{print $1}')"
-
+	[ -z "$session_name" ] && return 1
 	zellij a "$session_name"
 	exit 0
 }

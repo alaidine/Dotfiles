@@ -1,5 +1,4 @@
-setxkbmap fr
 picom -b
 xrdb ~/.Xresources
-~/.config/polybar/forest/scripts/pywal.sh ~/.dotfiles/backgrounds/stairs.jpg
-exec herbstluftwm
+wal -i ~/Pictures/artix-black-4k.png
+exec dwm
