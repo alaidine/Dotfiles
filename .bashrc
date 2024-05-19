@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-set -o vi
+# set -o vi
 
 # . "/home/alaidine/.local/share/cargo/env"
 export PATH=/home/alaidine/.local/bin:$PATH
@@ -75,3 +75,6 @@ alias tree='eza --tree $eza_params'
 alias hx='helix'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# For bash subshells, add to ~/.bashrc or ~/.bash_profile.
+printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
