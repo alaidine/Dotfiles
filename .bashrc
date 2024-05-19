@@ -80,7 +80,9 @@ alias hx='helix'
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
 
 eval "$(zoxide init bash)"
-# Change the bash prompt
-PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')\[\033[31m\]\$(git status --porcelain 2>/dev/null | wc -l | awk '{print \" +\"$1}')\[\033[00m\]\$ "
+PS1="\[\033[01;32m\]\u@\h\[\033[00m\]: \[\033[01;34m\]\w\
+\[\033[00m\]\$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')\
+\[\033[31m\]\$(git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git status --porcelain 2>/dev/null | wc -l | awk '{if (\$1 > 0) print \" +\"\$1}')\
+\[\033[00m\] \$ "
 PS2='> '
 PS3='? '
