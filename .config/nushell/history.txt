@@ -125,3 +125,13 @@ vim .wezterm.lua
 exit
 ls
 clear
+ls /mnt/Delivery/
+clear
+ls
+clear
+make
+pkill myrpg
+pkill gdb
+ls
+clear
+exit
