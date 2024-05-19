@@ -7,23 +7,71 @@
 
 set -o vi
 
-alias vim='nvim'
-alias g='git'
+# . "/home/alaidine/.local/share/cargo/env"
+export PATH=/home/alaidine/.local/bin:$PATH
+export PATH=/home/alaidine/.cargo/env:$PATH
+export PATH=/home/alaidine/.cargo/bin:$PATH
+export PATH=/home/alaidine/go/bin:$PATH
+export PATH=/home/alaidine/bin:$PATH
+export PATH=/home/alaidine/bin/python-venv/bin/:$PATH
+export PATH=/home/alaidine/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-alias l='eza'
-alias la='eza -a --icons'
-alias ll='eza -l --icons'
-alias lla='eza -la --icons'
+export PATH=/home/alaidine/.config/composer/vendor/bin:$PATH
+
+export C_INCLUDE_PATH=/home/alaidine/include:$C_INCLUDE_PATH
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/local/lib
+
+export PATH=$PATH:/usr/local/go/bin
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Turso
+export PATH="/home/alaidine/.turso:$PATH"
+
+# Fly.io
+export FLYCTL_INSTALL="/home/alaidine/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+
+alias vim='nvim'
+alias nwmacs="emacs --no-window-system"
+# alias emacs="emacsclient ./"
+alias pipes='pipes.sh'
 
 # use multiple version of nvim
-alias lazy-vim="NVIM_APPNAME=lazy-vim nvim"
-alias doom-nvim="NVIM_APPNAME=doom-nvim nvim"
-alias nvc="NVIM_APPNAME=nvchad nvim"
+alias vimd="NVIM_APPNAME=doom-nvim nvim"
+alias vc="NVIM_APPNAME=nvchad nvim"
+alias tim="NVIM_APPNAME=tim nvim"
+alias dvim="NVIM_APPNAME=dvim nvim"
+alias av="NVIM_APPNAME=astro-vim nvim"
 
-alias g="git"
-alias gss="git status --short"
+# fzf aliases
+alias fzfc="fzf --preview='less {}'"
+alias fzfb="fzf --preview='bat --color=always --style=numbers {}'"
 
 alias config="/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
 
+alias f="zi"
+alias gz="git-fzf"
+
+alias val="valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes"
+
+alias ls='eza $eza_params'
+alias l='eza --git-ignore $eza_params'
+alias ll='eza --header --long $eza_params'
+alias lla='eza --all --header --long $eza_params'
+alias llm='eza --all --header --long --sort=modified $eza_params'
+alias la='eza -lbhHigUmuSa'
+alias lx='eza -lbhHigUmuSa@'
+alias lt='eza --tree $eza_params'
+alias tree='eza --tree $eza_params'
+
+alias hx='helix'
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# . "/home/alaidine/.local/share/cargo/env"
