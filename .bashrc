@@ -80,9 +80,13 @@ alias hx='helix'
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
 
 eval "$(zoxide init bash)"
-PS1="\[\033[01;32m\]\u@\h\[\033[00m\]: \[\033[01;34m\]\w\
-\[\033[00m\]\$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')\
-\[\033[31m\]\$(git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git status --porcelain 2>/dev/null | wc -l | awk '{if (\$1 > 0) print \" +\"\$1}')\
-\[\033[00m\] \$ "
-PS2='> '
-PS3='? '
+
+eval "$(starship init bash)"
+
+# pnpm
+export PNPM_HOME="/home/alaidine/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
