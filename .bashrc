@@ -18,6 +18,7 @@ export PATH=/home/alaidine/.local/bin:$PATH
 export PATH=/home/alaidine/.cargo/env:$PATH
 export PATH=/home/alaidine/.cargo/bin:$PATH
 export PATH=/home/alaidine/go/bin:$PATH
+export PATH=/home/alaidine/mybin:$PATH
 export PATH=/home/alaidine/bin:$PATH
 export PATH=/home/alaidine/bin/python-venv/bin/:$PATH
 export PATH=/home/alaidine/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH

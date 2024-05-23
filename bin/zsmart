@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Function to create a new Zellige session
+function new_session() {
+  local session_name="$1"
+  if [[ -z "$session_name" ]]; then
+    session_name="zellij_$(date +%Y-%m-%d_%H-%M-%S)"
+  fi
+  zellij -s "$session_name"
+}
+
+# Check if Zellige is installed
+if ! command -v zellij &> /dev/null; then
+  echo "Error: Zellige is not installed."
+  exit 1
+fi
+
+# Get the current directory name for potential session naming
+current_dir=$(basename "$(pwd)")
+
+# Check for arguments (optional session name)
+if [[ $# -eq 1 ]]; then
+  new_session "$1"
+else
+  # Create session named after current directory if no argument provided
+  new_session "$current_dir"
+fi
+
