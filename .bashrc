@@ -1,6 +1,12 @@
-#
-# ~/.bashrc
-#
+#     _______                       __                           
+#    /       \                     /  |                          
+#    $$$$$$$  |  ______    _______ $$ |____    ______    _______ 
+#    $$ |__$$ | /      \  /       |$$      \  /      \  /       |
+#    $$    $$<  $$$$$$  |/$$$$$$$/ $$$$$$$  |/$$$$$$  |/$$$$$$$/ 
+#    $$$$$$$  | /    $$ |$$      \ $$ |  $$ |$$ |  $$/ $$ |      
+#    $$ |__$$ |/$$$$$$$ | $$$$$$  |$$ |  $$ |$$ |      $$ \_____ 
+#    $$    $$/ $$    $$ |/     $$/ $$ |  $$ |$$ |      $$       |
+#    $$$$$$$/   $$$$$$$/ $$$$$$$/  $$/   $$/ $$/        $$$$$$$/ 
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -17,6 +23,8 @@ export PATH=/home/alaidine/bin/python-venv/bin/:$PATH
 export PATH=/home/alaidine/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+export EDITOR='nvim'
 
 export PATH=/home/alaidine/.config/composer/vendor/bin:$PATH
 
@@ -90,3 +98,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# >>> xmake >>>
+test -f "/home/alaidine/.xmake/profile" && source "/home/alaidine/.xmake/profile"
+# <<< xmake <<<
