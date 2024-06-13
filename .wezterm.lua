@@ -10,10 +10,33 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+wezterm.on("user-var-changed", function(window, pane, name, value)
+	local overrides = window:get_config_overrides() or {}
+	if name == "ZEN_MODE" then
+		local incremental = value:find("+")
+		local number_value = tonumber(value)
+		if incremental ~= nil then
+			while number_value > 0 do
+				window:perform_action(wezterm.action.IncreaseFontSize, pane)
+				number_value = number_value - 1
+			end
+			overrides.enable_tab_bar = false
+		elseif number_value < 0 then
+			window:perform_action(wezterm.action.ResetFontSize, pane)
+			overrides.font_size = nil
+			overrides.enable_tab_bar = true
+		else
+			overrides.font_size = number_value
+			overrides.enable_tab_bar = false
+		end
+	end
+	window:set_config_overrides(overrides)
+end)
+
 wezterm.on("toggle-opacity", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	if not overrides.window_background_opacity then
-		overrides.window_background_opacity = 0.9
+		overrides.window_background_opacity = 0.7
 	else
 		overrides.window_background_opacity = nil
 	end
@@ -49,14 +72,13 @@ custom_tokyonight_night.tab_bar.background = "#040404"
 custom_tokyonight_night.tab_bar.inactive_tab.bg_color = "#0f0f0f"
 custom_tokyonight_night.tab_bar.new_tab.bg_color = "#080808"
 
-
 local custom_gruvbox = wezterm.color.get_builtin_schemes()["Gruvbox dark, hard (base16)"]
 custom_gruvbox.background = "#000000"
 
 config.color_schemes = {
 	["OLEDppuccin"] = custom,
 	["CUSTOM_TOKYO"] = custom_tokyonight_night,
-    ["CUSTOM_GRUV"] = custom_gruvbox,
+	["CUSTOM_GRUV"] = custom_gruvbox,
 }
 
 config.color_scheme = "OLEDppuccin"
