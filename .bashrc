@@ -1,105 +1,27 @@
-#     _______                       __                           
-#    /       \                     /  |                          
-#    $$$$$$$  |  ______    _______ $$ |____    ______    _______ 
-#    $$ |__$$ | /      \  /       |$$      \  /      \  /       |
-#    $$    $$<  $$$$$$  |/$$$$$$$/ $$$$$$$  |/$$$$$$  |/$$$$$$$/ 
-#    $$$$$$$  | /    $$ |$$      \ $$ |  $$ |$$ |  $$/ $$ |      
-#    $$ |__$$ |/$$$$$$$ | $$$$$$  |$$ |  $$ |$$ |      $$ \_____ 
-#    $$    $$/ $$    $$ |/     $$/ $$ |  $$ |$$ |      $$       |
-#    $$$$$$$/   $$$$$$$/ $$$$$$$/  $$/   $$/ $$/        $$$$$$$/ 
+#
+# ~/.bashrc
+#
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# set -o vi
-
-# . "/home/alaidine/.local/share/cargo/env"
-export PATH=/home/alaidine/.local/bin:$PATH
-export PATH=/home/alaidine/.cargo/env:$PATH
-export PATH=/home/alaidine/.cargo/bin:$PATH
-export PATH=/home/alaidine/go/bin:$PATH
-export PATH=/home/alaidine/mybin:$PATH
-export PATH=/home/alaidine/bin:$PATH
-export PATH=/home/alaidine/bin/python-venv/bin/:$PATH
-export PATH=/home/alaidine/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-export EDITOR='nvim'
-
-export PATH=/home/alaidine/.config/composer/vendor/bin:$PATH
-
-export C_INCLUDE_PATH=/home/alaidine/include:$C_INCLUDE_PATH
-
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/local/lib
-
-export PATH=$PATH:/usr/local/go/bin
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Turso
-export PATH="/home/alaidine/.turso:$PATH"
-
-# Fly.io
-export FLYCTL_INSTALL="/home/alaidine/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+. "$HOME/.cargo/env"
 
 alias vim='nvim'
-alias nwmacs="emacs --no-window-system"
-# alias emacs="emacsclient ./"
-alias pipes='pipes.sh'
+alias ll='eza --long --icons --grid'
+alias la='eza --long --icons --grid --all'
 
-# use multiple version of nvim
-alias vimd="NVIM_APPNAME=doom-nvim nvim"
-alias vc="NVIM_APPNAME=nvchad nvim"
-alias tim="NVIM_APPNAME=tim nvim"
-alias dvim="NVIM_APPNAME=dvim nvim"
-alias av="NVIM_APPNAME=astro-vim nvim"
-
-# fzf aliases
-alias fzfc="fzf --preview='less {}'"
-alias fzfb="fzf --preview='bat --color=always --style=numbers {}'"
-
-alias config="/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
-
-alias f="zi"
-alias gz="git-fzf"
-
-alias val="valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes"
-
-alias ls='eza $eza_params'
-alias l='eza --git-ignore $eza_params'
-alias ll='eza --header --long $eza_params'
-alias lla='eza --all --header --long $eza_params'
-alias llm='eza --all --header --long --sort=modified $eza_params'
-alias la='eza -lbhHigUmuSa'
-alias lx='eza -lbhHigUmuSa@'
-alias lt='eza --tree $eza_params'
-alias tree='eza --tree $eza_params'
-
-alias hx='helix'
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# For bash subshells, add to ~/.bashrc or ~/.bash_profile.
-printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
+source ~/Git/ble.sh/out/ble.sh
 
 eval "$(zoxide init bash)"
-
 eval "$(starship init bash)"
 
-# pnpm
-export PNPM_HOME="/home/alaidine/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+function set_win_title() {
+	echo -ne "\033]0; $(basename "$PWD") \007"
+}
+starship_precmd_user_func="set_win_title"
 
-# >>> xmake >>>
-test -f "/home/alaidine/.xmake/profile" && source "/home/alaidine/.xmake/profile"
-# <<< xmake <<<
+bleopt prompt_ps1_final='$(starship module character)'
