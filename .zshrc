@@ -16,7 +16,9 @@ alias vim="nvim"
 alias ll="eza --grid --long --icons"
 alias la="eza --all --grid --long --icons"
 
-plug "zsh-users/zsh-autosuggestions"
+alias vc="NVIM_APPNAME=nvchad nvim"
+
+# plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "jeffreytse/zsh-vi-mode"
@@ -32,7 +34,6 @@ bindkey -v '^?' backward-delete-char
 # Disable the cursor style feature
 ZVM_CURSOR_STYLE_ENABLED=false
 
-eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
@@ -45,5 +46,13 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+function set_win_title(){
+    echo -ne "\033]0; $(basename "$PWD") \007"
+}
+
+precmd_functions+=(set_win_title)
+
+eval "$(starship init zsh)"
 
 export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
