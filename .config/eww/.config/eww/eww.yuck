@@ -1,4 +1,0 @@
-(include "./definitions/_variables.yuck")
-(include "./bar/bar.yuck")
-(include "./controls/controls.yuck")
-(include "./status-bar/status.yuck")
