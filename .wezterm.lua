@@ -42,7 +42,11 @@ end)
 wezterm.on("toggle-opacity", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	if not overrides.window_background_opacity then
-		overrides.window_background_opacity = 0.4
+    if config.window_background_opacity == 1 then
+      overrides.window_background_opacity = 0.6
+    else
+      overrides.window_background_opacity = 1
+    end
 	else
 		overrides.window_background_opacity = nil
 	end
@@ -61,7 +65,7 @@ wezterm.on("toggle-ligature", function(window, pane)
 	window:set_config_overrides(overrides)
 end)
 
-config.window_background_opacity = 0.4
+config.window_background_opacity = 1
 config.hide_tab_bar_if_only_one_tab = true
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 11.0

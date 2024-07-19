@@ -1,3 +1,5 @@
+set fish_greeting ""
+
 alias g git
 
 set -gx TERM xterm-256color
@@ -8,9 +10,10 @@ alias l eza
 alias la 'eza -a --icons'
 alias ll 'eza -l --icons'
 alias lla 'eza -la --icons'
-alias s 'sesh connect $(sesh list | fzf)'
 
 alias dot '/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
+alias battery 'cat /sys/class/power_supply/BAT1/capacity'
 
 set -gx EDITOR nvim
 
@@ -40,13 +43,15 @@ end
 
 zoxide init fish | source
 
-function starship_transient_prompt_func
-  starship module character
-end
-
-starship init fish | source
-enable_transience
-
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# pnpm
+set -gx PNPM_HOME "/home/alaidine/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+
+alias pn pnpm
+# pnpm end
