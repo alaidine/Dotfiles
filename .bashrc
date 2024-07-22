@@ -147,6 +147,7 @@ shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o
 se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
+sghq() { sesh connect $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
 
 alias vim='nvim'
 alias ll='eza --long --icons --grid'
