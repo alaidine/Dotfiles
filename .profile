@@ -18,11 +18,10 @@ export TERMINAL="wezterm"
 export PATH=$HOME/.cargo/env:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
+
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export PATH=/home/alaidine/.config/composer/vendor/bin:$PATH
-export C_INCLUDE_PATH=/home/alaidine/include:$C_INCLUDE_PATH
-export PATH=$PATH:/usr/local/go/bin
 
 . "$HOME/.cargo/env"
 
