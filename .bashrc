@@ -100,13 +100,8 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 [ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
 
-# System Maintainence
-alias mw="~/.config/mutt/mutt-wizard.sh"
-alias sdn="sudo shutdown now"
-alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
-alias gua="git remote | xargs -L1 git push --all"
-
 # Some aliases
+alias sdn="sudo shutdown now"
 alias e="$EDITOR"
 alias p="sudo pacman"
 alias SS="sudo systemctl"
@@ -132,7 +127,6 @@ alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax hi
 alias yt="youtube-dl --add-metadata -i" # Download video link
 alias yta="yt -x -f bestaudio/best" # Download only audio
 alias YT="youtube-viewer"
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
 
 yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -152,8 +146,20 @@ sghq() { sesh connect $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf)
 alias vim='nvim'
 alias ll='eza --long --icons --grid'
 alias la='eza --long --icons --grid --all'
+alias battery='cat /sys/class/power_supply/BAT1/capacity'
+alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
 
 eval "$(zoxide init bash)"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -s "$HOME/.config/git-completion.bash" ] && \. "$HOME/.config/git-completion.bash"  # This loads git-completion.bash
+
+# pnpm
+export PNPM_HOME="/home/alaidine/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+source $HOME/.config/git-completion.bash
