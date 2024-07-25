@@ -39,7 +39,7 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      git
@@ -48,9 +48,10 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-Position 'bottom
+            shell-default-shell 'vterm)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
@@ -593,54 +594,7 @@ This function is called at the very end of Spacemacs initialization."
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
    '(package-selected-packages
-     '(ace-jump-helm-line add-node-modules-path afternoon-theme alect-themes
-                          ample-theme ample-zen-theme anti-zenburn-theme
-                          apropospriate-theme atom-one-dark-theme auto-compile
-                          autothemer badwolf-theme bind-map
-                          birds-of-paradise-plus-theme bubbleberry-theme bui
-                          busybee-theme catppuccin-theme cherry-blossom-theme
-                          chocolate-theme clues-theme
-                          color-theme-sanityinc-solarized
-                          color-theme-sanityinc-tomorrow company counsel
-                          counsel-gtags cyberpunk-theme dakrone-theme dap-mode
-                          darkmine-theme darkokai-theme darktooth-theme diminish
-                          django-theme doom-themes dotenv-mode dracula-theme
-                          ef-themes elisp-def elisp-demos elisp-slime-nav emr
-                          espresso-theme evil-evilified-state evil-matchit evil-mc
-                          exotica-theme eziam-themes farmhouse-themes
-                          flatland-theme flatui-theme flycheck-elsa
-                          flycheck-package gandalf-theme ggtags gotham-theme
-                          grandshell-theme grizzl gruber-darker-theme
-                          gruvbox-theme hc-zenburn-theme helm-ag helm-comint
-                          helm-descbinds helm-make helm-mode-manager helm-org
-                          helm-projectile helm-swoop helm-themes helm-xref
-                          hemisu-theme heroku-theme holy-mode htmlize hybrid-mode
-                          impatient-mode import-js inkpot-theme inspector
-                          ir-black-theme ivy jazz-theme jbeans-theme js-doc
-                          js2-mode js2-refactor kaolin-themes light-soap-theme
-                          livid-mode lsp-docker lsp-mode lsp-treemacs lush-theme
-                          macrostep madhat2r-theme majapahit-themes markdown-mode
-                          material-theme minimal-theme modus-themes moe-theme
-                          molokai-theme monochrome-theme monokai-theme
-                          multiple-cursors mustang-theme nameless naquadah-theme
-                          noctilux-theme nodejs-repl npm-mode obsidian-theme
-                          occidental-theme oldlace-theme omtose-phellack-theme
-                          organic-green-theme overseer pcre2el
-                          phoenix-dark-mono-theme phoenix-dark-pink-theme
-                          planet-theme prettier-js professional-theme
-                          purple-haze-theme quickrun railscasts-theme
-                          rebecca-theme reverse-theme seti-theme simple-httpd
-                          skewer-mode smyx-theme soft-charcoal-theme
-                          soft-morning-theme soft-stone-theme solarized-theme
-                          soothe-theme spacegray-theme spinner subatomic-theme
-                          subatomic256-theme sublime-themes sunny-day-theme swiper
-                          tango-2-theme tango-plus-theme tangotango-theme
-                          tao-theme tern toxi-theme treemacs-evil
-                          treemacs-icons-dired treemacs-projectile
-                          twilight-anti-bright-theme twilight-bright-theme
-                          twilight-theme ujelly-theme underwater-theme
-                          web-beautify white-sand-theme yaml yasnippet
-                          zen-and-art-theme zenburn-theme zonokai-emacs)))
+     '(eat esh-help eshell-prompt-extras eshell-z multi-term multi-vterm xref shell-pop terminal-here vterm ace-jump-helm-line add-node-modules-path afternoon-theme alect-themes ample-theme ample-zen-theme anti-zenburn-theme apropospriate-theme atom-one-dark-theme auto-compile autothemer badwolf-theme bind-map birds-of-paradise-plus-theme bubbleberry-theme bui busybee-theme catppuccin-theme cherry-blossom-theme chocolate-theme clues-theme color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow company counsel counsel-gtags cyberpunk-theme dakrone-theme dap-mode darkmine-theme darkokai-theme darktooth-theme diminish django-theme doom-themes dotenv-mode dracula-theme ef-themes elisp-def elisp-demos elisp-slime-nav emr espresso-theme evil-evilified-state evil-matchit evil-mc exotica-theme eziam-themes farmhouse-themes flatland-theme flatui-theme flycheck-elsa flycheck-package gandalf-theme ggtags gotham-theme grandshell-theme grizzl gruber-darker-theme gruvbox-theme hc-zenburn-theme helm-ag helm-comint helm-descbinds helm-make helm-mode-manager helm-org helm-projectile helm-swoop helm-themes helm-xref hemisu-theme heroku-theme holy-mode htmlize hybrid-mode impatient-mode import-js inkpot-theme inspector ir-black-theme ivy jazz-theme jbeans-theme js-doc js2-mode js2-refactor kaolin-themes light-soap-theme livid-mode lsp-docker lsp-mode lsp-treemacs lush-theme macrostep madhat2r-theme majapahit-themes markdown-mode material-theme minimal-theme modus-themes moe-theme molokai-theme monochrome-theme monokai-theme multiple-cursors mustang-theme nameless naquadah-theme noctilux-theme nodejs-repl npm-mode obsidian-theme occidental-theme oldlace-theme omtose-phellack-theme organic-green-theme overseer pcre2el phoenix-dark-mono-theme phoenix-dark-pink-theme planet-theme prettier-js professional-theme purple-haze-theme quickrun railscasts-theme rebecca-theme reverse-theme seti-theme simple-httpd skewer-mode smyx-theme soft-charcoal-theme soft-morning-theme soft-stone-theme solarized-theme soothe-theme spacegray-theme spinner subatomic-theme subatomic256-theme sublime-themes sunny-day-theme swiper tango-2-theme tango-plus-theme tangotango-theme tao-theme tern toxi-theme treemacs-evil treemacs-icons-dired treemacs-projectile twilight-anti-bright-theme twilight-bright-theme twilight-theme ujelly-theme underwater-theme web-beautify white-sand-theme yaml yasnippet zen-and-art-theme zenburn-theme zonokai-emacs)))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
