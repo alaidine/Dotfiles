@@ -20,10 +20,12 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+export CPATH=$CPATH:/usr/local/include/wlroots-0.19
+
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-. "$HOME/.cargo/env"
 
 # less/man colors
 export LESS=-R
