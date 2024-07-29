@@ -40,7 +40,7 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;;auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      git
@@ -51,11 +51,12 @@ This function should only modify configuration layer settings."
      org
      emoji
      games
-     colors
+     (colors :variables
+             colors-colorize-identifiers 'all)
      tmux
      unicode-fonts
      (shell :variables
-            shell-default-height 30
+            shell-default-height 40
             shell-default-Position 'bottom
             shell-default-shell 'vterm)
      ;; spell-checking
