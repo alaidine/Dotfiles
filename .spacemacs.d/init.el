@@ -40,7 +40,7 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     ;;auto-completion
      ;; better-defaults
      emacs-lisp
      git
@@ -49,6 +49,11 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      org
+     emoji
+     games
+     colors
+     tmux
+     unicode-fonts
      (shell :variables
             shell-default-height 30
             shell-default-Position 'bottom
@@ -61,6 +66,7 @@ This function should only modify configuration layer settings."
                treemacs-use-nerd-icons t)
      json
      themes-megapack
+     ibuffer
      (tree-sitter :variables
                   spacemacs-tree-sitter-hl-black-list '(js2-mode rjsx-mode)
                   tree-sitter-syntax-highlight-enable t
@@ -251,8 +257,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-one
-                         doom-one-light)
+   dotspacemacs-themes '(doom-gruvbox
+                         doom-gruvbox-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -604,63 +610,58 @@ This function is called at the very end of Spacemacs initialization."
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
    '(package-selected-packages
-     '(ace-jump-helm-line add-node-modules-path afternoon-theme alect-themes
-                          ample-theme ample-zen-theme anaconda-mode
-                          anti-zenburn-theme apropospriate-theme
-                          atom-one-dark-theme auto-compile autothemer
-                          badwolf-theme bind-map birds-of-paradise-plus-theme
-                          blacken bubbleberry-theme bui busybee-theme
-                          catppuccin-theme cherry-blossom-theme chocolate-theme
-                          clues-theme code-cells color-theme-sanityinc-solarized
-                          color-theme-sanityinc-tomorrow company company-anaconda
-                          concurrent counsel counsel-gtags ctable cyberpunk-theme
-                          cython-mode dakrone-theme dap-mode darkmine-theme
-                          darkokai-theme darktooth-theme deferred diminish
-                          django-theme doom-themes dotenv-mode dracula-theme eat
-                          ef-themes elisp-def elisp-demos elisp-slime-nav emr epc
-                          esh-help eshell-prompt-extras eshell-z espresso-theme
-                          evil-evilified-state evil-matchit evil-mc exotica-theme
-                          eziam-themes farmhouse-themes flatland-theme
-                          flatui-theme flycheck-elsa flycheck-package
-                          fringe-helper gandalf-theme ggtags gotham-theme
-                          grandshell-theme grizzl gruber-darker-theme
-                          gruvbox-theme hc-zenburn-theme helm-ag helm-comint
-                          helm-cscope helm-descbinds helm-make helm-mode-manager
-                          helm-org helm-projectile helm-pydoc helm-swoop
-                          helm-themes helm-xref hemisu-theme heroku-theme
-                          holy-mode htmlize hybrid-mode imenu-list impatient-mode
-                          import-js importmagic inkpot-theme inspector
-                          ir-black-theme ivy jazz-theme jbeans-theme js-doc
-                          js2-mode js2-refactor kaolin-themes light-soap-theme
-                          live-py-mode livid-mode load-env-vars lsp-docker
-                          lsp-mode lsp-pyright lsp-treemacs lush-theme macrostep
-                          madhat2r-theme majapahit-themes markdown-mode
-                          material-theme minimal-theme modus-themes moe-theme
-                          molokai-theme monochrome-theme monokai-theme multi-term
-                          multi-vterm multiple-cursors mustang-theme nameless
-                          naquadah-theme neotree noctilux-theme nodejs-repl nose
-                          npm-mode obsidian-theme occidental-theme oldlace-theme
-                          omtose-phellack-theme organic-green-theme overseer
-                          pcre2el phoenix-dark-mono-theme phoenix-dark-pink-theme
-                          pip-requirements pipenv pippel planet-theme poetry
-                          prettier-js professional-theme purple-haze-theme
-                          py-isort pydoc pyenv-mode pylookup pytest pythonic
-                          pyvenv quickrun railscasts-theme rebecca-theme
-                          reverse-theme seti-theme shell-pop simple-httpd
-                          skewer-mode smartparens smyx-theme soft-charcoal-theme
-                          soft-morning-theme soft-stone-theme solarized-theme
-                          soothe-theme spacegray-theme sphinx-doc spinner
-                          stickyfunc-enhance subatomic-theme subatomic256-theme
-                          sublime-themes sunny-day-theme swiper tango-2-theme
-                          tango-plus-theme tangotango-theme tao-theme
-                          terminal-here tern toxi-theme tree-sitter
-                          tree-sitter-langs treemacs-evil treemacs-icons-dired
-                          treemacs-projectile ts-fold tsc
-                          twilight-anti-bright-theme twilight-bright-theme
-                          twilight-theme ujelly-theme underwater-theme vterm
-                          web-beautify white-sand-theme window-purpose xcscope
-                          xref yaml yapfify yasnippet zen-and-art-theme
-                          zenburn-theme zonokai-emacs)))
+     '(2048-game ace-jump-helm-line add-node-modules-path afternoon-theme
+                 alect-themes ample-theme ample-zen-theme anaconda-mode
+                 anti-zenburn-theme apropospriate-theme atom-one-dark-theme
+                 auto-compile autothemer badwolf-theme bind-map
+                 birds-of-paradise-plus-theme blacken bubbleberry-theme bui
+                 busybee-theme catppuccin-theme cherry-blossom-theme
+                 chocolate-theme clues-theme code-cells
+                 color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow
+                 company company-anaconda concurrent counsel counsel-gtags ctable
+                 cyberpunk-theme cython-mode dakrone-theme dap-mode darkmine-theme
+                 darkokai-theme darktooth-theme deferred diminish django-theme
+                 doom-themes dotenv-mode dracula-theme eat ef-themes elisp-def
+                 elisp-demos elisp-slime-nav emoji-cheat-sheet-plus emojify emr
+                 epc esh-help eshell-prompt-extras eshell-z espresso-theme
+                 evil-evilified-state evil-matchit evil-mc exotica-theme
+                 eziam-themes farmhouse-themes flatland-theme flatui-theme
+                 flycheck-elsa flycheck-package font-utils fringe-helper
+                 gandalf-theme ggtags gotham-theme grandshell-theme grizzl
+                 gruber-darker-theme gruvbox-theme hc-zenburn-theme helm helm-ag
+                 helm-comint helm-core helm-cscope helm-descbinds helm-git-grep
+                 helm-ls-git helm-make helm-mode-manager helm-org helm-org-rifle
+                 helm-projectile helm-pydoc helm-swoop helm-themes helm-xref
+                 hemisu-theme heroku-theme holy-mode htmlize hybrid-mode
+                 ibuffer-projectile imenu-list impatient-mode import-js
+                 importmagic inkpot-theme inspector ir-black-theme ivy jazz-theme
+                 jbeans-theme js-doc js2-mode js2-refactor kaolin-themes
+                 light-soap-theme live-py-mode livid-mode load-env-vars lsp-docker
+                 lsp-mode lsp-pyright lsp-treemacs lush-theme macrostep
+                 madhat2r-theme majapahit-themes markdown-mode material-theme
+                 minimal-theme mmt modus-themes moe-theme molokai-theme
+                 monochrome-theme monokai-theme multi-term multi-vterm
+                 multiple-cursors mustang-theme nameless naquadah-theme neotree
+                 noctilux-theme nodejs-repl nose npm-mode obsidian-theme
+                 occidental-theme oldlace-theme omtose-phellack-theme
+                 organic-green-theme overseer pacmacs pcache pcre2el
+                 persistent-soft phoenix-dark-mono-theme phoenix-dark-pink-theme
+                 pip-requirements pipenv pippel planet-theme poetry prettier-js
+                 professional-theme purple-haze-theme py-isort pydoc pyenv-mode
+                 pylookup pytest pythonic pyvenv quickrun railscasts-theme
+                 rebecca-theme reverse-theme seti-theme shell-pop simple-httpd
+                 skewer-mode smartparens smyx-theme soft-charcoal-theme
+                 soft-morning-theme soft-stone-theme solarized-theme soothe-theme
+                 spacegray-theme sphinx-doc spinner stickyfunc-enhance
+                 subatomic-theme subatomic256-theme sublime-themes sudoku
+                 sunny-day-theme swiper tango-2-theme tango-plus-theme
+                 tangotango-theme tao-theme terminal-here tern toxi-theme
+                 tree-sitter tree-sitter-langs treemacs-evil treemacs-icons-dired
+                 treemacs-projectile ts-fold tsc twilight-anti-bright-theme
+                 twilight-bright-theme twilight-theme typit ucs-utils ujelly-theme
+                 underwater-theme unicode-fonts vterm web-beautify wfnames
+                 white-sand-theme window-purpose xcscope xref yaml yapfify
+                 yasnippet zen-and-art-theme zenburn-theme zonokai-emacs)))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
