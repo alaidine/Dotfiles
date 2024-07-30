@@ -152,6 +152,7 @@ eval "$(zoxide init bash)"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -s "$HOME/.config/git-completion.bash" ] && \. "$HOME/.config/git-completion.bash"  # This loads git-completion.bash
+[ -s "$HOME/.proxy.bash" ] && \. "$HOME/.proxy.bash" # Load proxy if it exists
 
 # pnpm
 export PNPM_HOME="/home/alaidine/.local/share/pnpm"
