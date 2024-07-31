@@ -77,7 +77,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
 PS1='[\u@\h \W]\$ '
 
 case ${TERM} in
@@ -93,8 +92,6 @@ esac
 if [[ -r /usr/share/bash-completion/bash_completion ]]; then
   . /usr/share/bash-completion/bash_completion
 fi
-
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 [ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
 
@@ -150,7 +147,6 @@ alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
 
 eval "$(zoxide init bash)"
 
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -164,5 +160,26 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Colors
+RESET="\[\033[0m\]"
+RED="\[\033[0;31m\]"
+GREEN="\[\033[0;32m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[0;34m\]"
+MAGENTA="\[\033[0;35m\]"
+CYAN="\[\033[0;36m\]"
+
+git_status() {
+    if git rev-parse --is-inside-work-tree &>/dev/null; then
+        [[ $(git status --porcelain 2>/dev/null) ]] && echo "*"
+    fi
+}
+
+source $HOME/.config/git-prompt.sh
+
+# Set the prompt
+# export PS1="${CYAN}\u${RESET}@${GREEN}\h${RESET}:${BLUE}\w${RESET}${YELLOW}\$(__git_ps1)${RED}\$(git_status)${RESET}\n\$ "
+export PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\W${RESET}\$(__git_ps1)${RED}\$(git_status)]${RESET}\$ "
 
 source $HOME/.config/git-completion.bash
