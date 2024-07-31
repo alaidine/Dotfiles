@@ -29,7 +29,7 @@ set -gx PATH ~/.cargo/bin/ $PATH
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
-source $HOME/.cargo/env.fish
+# source $HOME/.cargo/env.fish
 
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
