@@ -91,7 +91,7 @@ config.color_schemes = {
 	["CUSTOM_GRUV"] = custom_gruvbox,
 }
 
-config.color_scheme = "OLEDppuccin"
+config.color_scheme = "CUSTOM_GRUV"
 
 config.keys = {
 	{
