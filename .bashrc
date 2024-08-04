@@ -167,3 +167,4 @@ source $HOME/.config/git-prompt.sh
 export PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\W${RESET}\$(__git_ps1)${RED}\$(git_status)]${RESET}\$ "
 
 source $HOME/.config/git-completion.bash
+source $HOME/.config/herbstluftwm/herbstclient-completion.bash
