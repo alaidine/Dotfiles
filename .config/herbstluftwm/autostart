@@ -60,6 +60,7 @@ hc keybind $Mod-u       split   bottom  0.5
 hc keybind $Mod-o       split   right   0.5
 # let the current frame explode into subframes
 hc keybind $Mod-Control-space split explode
+hc keybind $Mod-Shift-Return spawn q3terminal.sh
 
 # resizing frames and floating clients
 resizestep=0.02
