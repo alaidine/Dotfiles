@@ -12,25 +12,23 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 
 Plug 'tpope/vim-sensible'
-Plug 'morhetz/gruvbox'
-
+Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'mbbill/undotree'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
-set number
-set relativenumber
-
 filetype plugin indent on
 
+set number
+set relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
 set background=dark
 
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_transparent_bg=1
+let g:gruvbox_material_transparent_background=1
 
-" colorscheme gruvbox
+colorscheme gruvbox-material
