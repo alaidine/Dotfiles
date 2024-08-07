@@ -123,7 +123,7 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 sghq() { sesh connect $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
 fghq() { cd $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
 
-alias vim='nvim'
+alias nv='nvim'
 alias ll='eza --long --icons --grid'
 alias la='eza --long --icons --grid --all'
 alias battery='cat /sys/class/power_supply/BAT1/capacity'
