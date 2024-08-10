@@ -168,3 +168,5 @@ export PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\W${RESET}\$(__git_ps
 
 source $HOME/.config/git-completion.bash
 source $HOME/.config/herbstluftwm/herbstclient-completion.bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
