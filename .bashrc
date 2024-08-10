@@ -4,10 +4,7 @@ stty -ixon # Disable ctrl-s and ctrl-q.
 shopt -s autocd # Allows you to cd into directory merely by typing the directory name.
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
