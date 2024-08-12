@@ -1,6 +1,3 @@
-Xcursor.theme: Qogir-dark
-Xcursor.size: 16
-
 !! Transprency (0-1):
 st.alpha: 1
 st.alphaOffset : 0.2
