@@ -49,6 +49,9 @@ nnoremap <leader>ff :Files<CR>
 
 nnoremap <leader>ut :UndotreeToggle<CR>
 
+vnoremap < <gv
+vnoremap > >gv
+
 colorscheme gruvbox-material
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
