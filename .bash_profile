@@ -12,5 +12,5 @@ export EDITOR="vim"
 . "$HOME/.cargo/env"
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-    startx
+    exec startx >& ~/.xsession-errors
 fi
