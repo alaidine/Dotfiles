@@ -4,6 +4,6 @@ picom -b
 
 touchpad_click.sh
 feh --bg-fill ~/Pictures/trees.jpg
-xscreensaver -no-splash &
+xautolock -time 10 -locker slock
 
 exec herbstluftwm --locked
