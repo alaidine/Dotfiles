@@ -120,11 +120,18 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 sghq() { sesh connect $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
 fghq() { cd $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
 
+if ! command -v eza &> /dev/null
+then
+    alias ll='ls -l -hN --color=auto --group-directories-first'
+    alias ll='ls -l --all -hN --color=auto --group-directories-first'
+else
+    alias ll='eza --long --icons --grid'
+    alias la='eza --long --icons --grid --all'
+fi
+
 alias nv='nvim'
-alias ll='eza --long --icons --grid'
-alias la='eza --long --icons --grid --all'
 alias battery='cat /sys/class/power_supply/BAT1/capacity'
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
+alias cfg="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
 
 eval "$(zoxide init bash)"
 
