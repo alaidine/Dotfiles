@@ -74,8 +74,6 @@ case ${TERM} in
     ;;
 esac
 
-[ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
-
 # Some aliases
 alias sdn="sudo shutdown now"
 alias e="$EDITOR"
