@@ -123,7 +123,7 @@ fghq() { cd $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
 if ! command -v eza &> /dev/null
 then
     alias ll='ls -l -hN --color=auto --group-directories-first'
-    alias ll='ls -l --all -hN --color=auto --group-directories-first'
+    alias la='ls -l --all -hN --color=auto --group-directories-first'
 else
     alias ll='eza --long --icons --grid'
     alias la='eza --long --icons --grid --all'
