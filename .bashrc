@@ -6,12 +6,12 @@ shopt -s autocd # Allows you to cd into directory merely by typing the directory
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# append to the history file, don't overwrite it
+shopt -s histappend
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -28,116 +28,18 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -hN --color=auto --group-directories-first'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep="grep --color=auto"
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-case ${TERM} in
-  Eterm*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|xterm*)
-    PROMPT_COMMAND+=('printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"')
-
-    ;;
-  screen*)
-    PROMPT_COMMAND+=('printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"')
-    ;;
-esac
-
-# Some aliases
-alias sdn="sudo shutdown now"
-alias e="$EDITOR"
-alias p="sudo pacman"
-alias SS="sudo systemctl"
-alias v="$EDITOR"
-alias f="vifm"
-alias r="ranger"
-alias sr="sudo ranger"
-alias ka="killall"
-alias g="git"
-alias trem="transmission-remote"
-alias mkd="mkdir -pv"
-alias ref="shortcuts >/dev/null ; source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
-alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
-alias x="sxiv -ft *"
-alias lsp="pacman -Qett --color=always | less"
-alias pt="python -m unittest"
-
-# Adding color
-alias diff="diff --color=auto"
-alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
-
-# Internet
-alias yt="youtube-dl --add-metadata -i" # Download video link
-alias yta="yt -x -f bestaudio/best" # Download only audio
-alias YT="youtube-viewer"
-
-yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
-shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
-se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
-sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
-vf() { fzf | xargs -r -I % $EDITOR % ;}
-sghq() { sesh connect $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
-fghq() { cd $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
-
-if ! command -v eza &> /dev/null
-then
-    alias ll='ls -l -hN --color=auto --group-directories-first'
-    alias la='ls -l --all -hN --color=auto --group-directories-first'
-else
-    alias ll='eza --long --icons --grid'
-    alias la='eza --long --icons --grid --all'
-fi
-
-alias nv='nvim'
-alias battery='cat /sys/class/power_supply/BAT1/capacity'
-alias cfg="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
-
 eval "$(zoxide init bash)"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-[ -s "$HOME/.config/git-completion.bash" ] && \. "$HOME/.config/git-completion.bash"  # This loads git-completion.bash
-[ -s "$HOME/.proxy.bash" ] && \. "$HOME/.proxy.bash" # Load proxy if it exists
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$HOME/.config/git-completion.bash" ] && \. "$HOME/.config/git-completion.bash"
+[ -s "$HOME/.proxy.bash" ] && \. "$HOME/.proxy.bash"
+[ -s "$HOME/.config/herbstluftwm/herbstclient-completion.bash" ] && \. "$HOME/.config/herbstluftwm/herbstclient-completion.bash"
 
 # pnpm
 export PNPM_HOME="/home/alaidine/.local/share/pnpm"
@@ -146,6 +48,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Colors
 RESET="\[\033[0m\]"
@@ -156,19 +60,4 @@ BLUE="\[\033[0;34m\]"
 MAGENTA="\[\033[0;35m\]"
 CYAN="\[\033[0;36m\]"
 
-git_status() {
-    if git rev-parse --is-inside-work-tree &>/dev/null; then
-        [[ $(git status --porcelain 2>/dev/null) ]] && echo "*"
-    fi
-}
-
-source $HOME/.config/git-prompt.sh
-
-# Set the prompt
-# export PS1="${CYAN}\u${RESET}@${GREEN}\h${RESET}:${BLUE}\w${RESET}${YELLOW}\$(__git_ps1)${RED}\$(git_status)${RESET}\n\$ "
-export PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\W${RESET}\$(__git_ps1)${RED}\$(git_status)]${RESET}\$ "
-
-source $HOME/.config/git-completion.bash
-source $HOME/.config/herbstluftwm/herbstclient-completion.bash
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\W${RESET}${RED}]${RESET}\$ "
