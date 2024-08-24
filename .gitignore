@@ -1,4 +1,5 @@
 Dotfiles
+.dotfiles
 fish_variables
 .config/zsh/.zsh_history
 .config/zsh/.zcompdump
