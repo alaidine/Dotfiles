@@ -37,7 +37,7 @@ fi
 
 alias nv='nvim'
 alias battery='cat /sys/class/power_supply/BAT1/capacity'
-alias cfg="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

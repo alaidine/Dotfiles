@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-git clone --bare https://bitbucket.org/durdn/cfg.git $HOME/.cfg
+git clone --bare https://github.com/alaidine/dotfiles $HOME/.dotfiles
 function config {
-   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 mkdir -p .config-backup
 config checkout
