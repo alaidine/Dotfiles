@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
 
-picom -b
+function herbstfluft() {
+    picom -b
+    touchpad_click.sh
+    feh --bg-fill ~/Pictures/trees.jpg
+    xautolock -time 10 -locker slock &
+    exec herbstluftwm --locked
+}
 
-touchpad_click.sh
-feh --bg-fill ~/Pictures/trees.jpg
-xautolock -time 10 -locker slock &
+function plasma() {
+    export DESKTOP_SESSION=plasma
+    exec startplasma-x11
+}
 
-exec herbstluftwm --locked
+function mate() {
+    exec mate-session
+}
+
+herbstfluft
