@@ -17,4 +17,9 @@ function mate() {
     exec mate-session
 }
 
+function xfce() {
+    picom -b
+    exec startxfce4
+}
+
 herbstfluft
