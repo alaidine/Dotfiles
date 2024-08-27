@@ -1,7 +1,6 @@
 # Some aliases
 alias sdn="sudo shutdown now"
 alias e="$EDITOR"
-alias p="sudo pacman"
 alias SS="sudo systemctl"
 alias v="$EDITOR"
 alias f="vifm"
@@ -14,7 +13,6 @@ alias mkd="mkdir -pv"
 alias ref="shortcuts >/dev/null ; source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 alias x="sxiv -ft *"
-alias lsp="pacman -Qett --color=always | less"
 alias pt="python -m unittest"
 
 # Adding color
