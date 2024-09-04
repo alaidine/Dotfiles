@@ -23,6 +23,8 @@ Before setting up these dotfiles, ensure you have the following installed:
 - git
 - vim
 - tmux
+- [Tmux Plugin Manager (TPM)](https://github.com/tmux-plugins/tpm)
+- [vim-plug](https://github.com/junegunn/vim-plug)
 
 ## Installation Guide
 
