@@ -32,7 +32,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-eval "$(zoxide init bash)"
+if command -v zoxide &> /dev/null
+then
+    eval "$(zoxide init bash)"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
