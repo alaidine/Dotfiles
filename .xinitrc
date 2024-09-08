@@ -22,4 +22,14 @@ function xfce() {
     exec startxfce4
 }
 
+function suckless() {
+    picom -b
+    touchpad_click.sh
+    feh --bg-fill ~/Pictures/trees.jpg
+    xautolock -time 10 -locker slock &
+    export PATH=$PATH:~/.local/bin/statusbar
+    dwmblocks &
+    exec dwm
+}
+
 herbstfluft
