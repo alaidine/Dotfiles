@@ -674,7 +674,7 @@ This function is called at the very end of Spacemacs initialization."
                sphinx-doc spinner stickyfunc-enhance subatomic-theme
                subatomic256-theme sublime-themes sudoku sunny-day-theme swiper
                tagedit tango-2-theme tango-plus-theme tangotango-theme tao-theme
-               terminal-here tern toxi-theme tree-sitter tree-sitter-langs
+               terminal-here tern tide toxi-theme tree-sitter tree-sitter-langs
                treemacs treemacs-evil treemacs-icons-dired treemacs-projectile
                ts-fold tsc twilight-anti-bright-theme twilight-bright-theme
                twilight-theme typescript-mode typit ucs-utils ujelly-theme
