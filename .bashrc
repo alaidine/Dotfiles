@@ -63,4 +63,15 @@ BLUE="\[\033[0;34m\]"
 MAGENTA="\[\033[0;35m\]"
 CYAN="\[\033[0;36m\]"
 
+function set_window_title() {
+    local title
+    if [[ "$PWD" == "$HOME" ]]; then
+        title="~"
+    else
+        title="${PWD/#$HOME/\~}"
+    fi
+    echo -ne "\033]0;$title\007"
+}
+
+export PROMPT_COMMAND="set_window_title"
 export PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\W${RESET}${RED}]${RESET}\$ "
