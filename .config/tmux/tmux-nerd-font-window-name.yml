@@ -11,6 +11,7 @@ icons:
   fx: "📄"
   nvim: "📝"
   vim: "📝"
+  nano: "📝"
   ollama: "🦙"
   overmind: "👀"
   stripe-mock: "💳"
