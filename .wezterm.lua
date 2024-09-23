@@ -93,6 +93,9 @@ config.color_schemes = {
 
 config.color_scheme = "CUSTOM_GRUV"
 
+config.initial_rows = 24
+config.initial_cols = 96
+
 config.keys = {
 	{
 		key = "n",
