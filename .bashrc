@@ -32,11 +32,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if command -v zoxide &> /dev/null
-then
-    eval "$(zoxide init bash)"
-fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
@@ -75,3 +70,8 @@ function set_window_title() {
 
 export PROMPT_COMMAND="set_window_title"
 export PS1="${RED}[${YELLOW}\u${GREEN}@${BLUE}\h ${MAGENTA}\W${RESET}${RED}]${RESET}\$ "
+
+if command -v zoxide &> /dev/null
+then
+    eval "$(zoxide init bash)"
+fi
