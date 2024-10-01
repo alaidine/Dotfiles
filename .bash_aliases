@@ -65,3 +65,4 @@ sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 sghq() { sesh connect $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
 fghq() { cd $(ghq list | awk '{printf "'$(ghq root)'/"; print}' | fzf) ;}
+s() { sesh connect $(sesh list | fzf) ;}
